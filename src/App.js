@@ -19,15 +19,8 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
       <div>
-        {posts.length
-          ? posts.map((post) => {
-              return <div key={post.id}>{post.name}</div>;
-            })
-          : null}
+        <h1>TEST</h1>
       </div>
-      {error ? <div>{error}</div> : ""}
-    </div>
   );
 }
