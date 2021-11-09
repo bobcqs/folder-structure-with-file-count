@@ -10,7 +10,8 @@ function initialState(cars) {
     })
 }
 
-function FileTree({ cars }) {
+function FileTree() {
+  
 }
 
 export default ObjectKeys;
