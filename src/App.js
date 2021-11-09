@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FileTree from './FileTree';
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +21,7 @@ export default function App() {
 
   return (
       <div>
-        <h1>TEST</h1>
+        <FileTree cars={posts} />
       </div>
   );
 }
