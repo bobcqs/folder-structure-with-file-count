@@ -13,6 +13,12 @@ function initialState(cars) {
 
 function FileTree({ cars }) {
     const [obj, setObj] = useState(initialState(cars));
+    const keys = Object.keys(obj);
+    console.log('keys: ', keys);
+
+    useEffect(() => {
+        setObj(initialState(cars));
+    }, [cars]);
 
     return (
         <h1>Test</h1>
