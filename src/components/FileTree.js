@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../style/FileTree.css'
-import {transferBytesFormat} from "../api/Files";
+import {transferBytesFormat} from "./Files";
 
 function FileTree(props){
     const {data,name,type,size} = props

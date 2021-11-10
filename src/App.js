@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import FileTree from './components/FileTree'
 import './style/App.css'
 import {getCars} from './api/server'
-import {transferBytesFormat,calculateFileSizeAndNumber} from './api/utils'
+import {transferBytesFormat,calculateFileSizeAndNumber} from './components/Files'
 
 export default function App() {
   const [posts, setPosts] = useState([]);
