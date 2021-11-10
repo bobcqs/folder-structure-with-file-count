@@ -1,0 +1,15 @@
+.rotate{
+    transform: rotate(-90deg);
+}
+
+.li{
+    list-style: none;
+}
+.active{
+    display: block;
+}
+.hiden{
+    display: none;
+}
+
+
