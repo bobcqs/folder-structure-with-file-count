@@ -1,8 +1,9 @@
 import React, {Component,useState} from 'react';
 import './FileTree.css'
+import {change} from "../api/utils";
 
 function FileTree(props){
-    const {data,name} = props
+    const {data,name,type,size} = props
     const [isShow,setIsShow] = useState(false)
     const click = (e)=>{
         console.log(data)
@@ -13,7 +14,12 @@ function FileTree(props){
         <div>
             <ul>
                 <li onClick={click}>
-
+                
+                <div className={'folder-content'}>
+                        <div className="file">
+                        </div>
+                        <span>{name}  {type==="folder"?null:change(size)}</span>
+                    </div>
                     <div>
                         <span>{name}</span>
                     </div>

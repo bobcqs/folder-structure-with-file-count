@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FileTree from './components/FileTree'
+import {change} from './api/utils'
 
 export default function App() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
+  const [size,setSize] = useState(0)
+  const [fileNum,setFileNum] = useState(0)
 
   useEffect(() => {
     axios
@@ -27,6 +30,10 @@ export default function App() {
                       })
                       : null}
           {error ? <div>{error}</div> : ""}
+          <div className="sum-box">
+              <h2>Total Files:{fileNum}</h2>
+              <h2>Total Filesize:{change(size)}</h2>
+          </div>
       </div>
   );
 }
