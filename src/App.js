@@ -5,7 +5,6 @@ import FileTree from './components/FileTree'
 export default function App() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
-  const [fileNum,setFileNum] = useState(0)
 
   useEffect(() => {
     axios
