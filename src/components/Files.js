@@ -1,3 +1,7 @@
+import React, {useEffect, useState} from "react";
+import FileTree from "./FileTree";
+import {getCars} from "../api/server";
+
 export const transferBytesFormat = (limit)=>{
     let size = "";
     if(limit < 0.1 * 1024){                            
@@ -34,5 +38,42 @@ export const calculateFileSizeAndNumber = (tree) =>{
     }
     rec(tree)
     return [size,num]
+}
+
+export const File = ()=> {
+    const [posts, setPosts] = useState([]);
+    const [error, setError] = useState("");
+    const [filesSize,setFilesSize] = useState(0)
+    const [filesNumber,setFilesNumber] = useState(0)
+
+    useEffect(() => {
+        getCars()
+            .then((response) => {
+                setPosts(response.data);
+                setFilesSize(calculateFileSizeAndNumber(response.data))
+            })
+            .catch((error) => {
+                console.log(error);
+                setError("we have received an error");
+            });
+    }, []);
+    return (
+        <div  className="App">
+            <div className="container">
+                {
+                    posts.length
+                        ? posts.map((post,index) => {
+                            return <FileTree key={index} data={post.children} name={post.name} type={post.type}/>;
+                        })
+                        : null
+                }
+                {error ? <div>{error}</div> : ""}
+                <div className="sum-box">
+                    <h2>Total Files：{filesNumber}</h2>
+                    <h2>Total Filesize：{transferBytesFormat(filesSize)}</h2>
+                </div>
+            </div>
+        </div>
+    );
 }
 
