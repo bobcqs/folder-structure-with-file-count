@@ -20,9 +20,40 @@ function FileTree({ cars }) {
         setObj(initialState(cars));
     }, [cars]);
 
+    const handleClickFolder = (key) => {
+        setObj({
+            ...obj,
+            [key]: {
+                ...obj[key],
+                __isOpen: !obj[key].__isOpen,
+            },
+        });
+    };
+
     return (
-        <h1>Test</h1>
-    )
+        <div>
+            {keys.map((key) => {
+                const value = obj[key];
+                if (typeof value === 'object' && value !== null) {
+                    return (
+                        <div key={key}>
+                            <span onClick={() => handleClickFolder(key)}>{`[${
+                                obj[key].__isOpen ? 'CLOSESSS' : 'OPENNN'
+                            }] `}</span>
+                            {key}
+                            {obj[key].__isOpen && <FileTree cars={obj[key]} />}
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div key={key}>
+                        {key}: {obj[key]}
+                        </div>
+                    );
+                    }
+            })}
+        </div>
+    );
 }
 
 export default FileTree;
