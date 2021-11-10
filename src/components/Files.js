@@ -1,47 +1,59 @@
 import React, {useEffect, useState} from "react";
 import FileTree from "./FileTree";
-import {getCars} from "../api/server";
+import { getCars } from "../api/server";
 
 export const transferBytesFormat = (limit)=>{
-    let size = "";
-    if(limit < 0.1 * 1024){                            
-        size = limit.toFixed(2) + "B"
-    }else if(limit < 0.1 * 1024 * 1024){            
-        size = (limit/1024).toFixed(2) + "KB"
-    }else if(limit < 0.1 * 1024 * 1024 * 1024){       
-        size = (limit/(1024 * 1024)).toFixed(2) + "MB"
-    }else{                                           
-        size = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
+    let fileSize = "";
+    if(limit < 0.1 * 1024) {                            
+        fileSize = limit.toFixed(2) + "B"
+    }else if(limit < 0.1 * 1024 * 1024) {            
+        fileSize = (limit/1024).toFixed(2) + "KB"
+    }else if(limit < 0.1 * 1024 * 1024 * 1024) {       
+        fileSize = (limit/(1024 * 1024)).toFixed(2) + "MB"
+    }else {                                           
+        fileSize = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
     }
-    let sizeStr = size + "";                        
+    let sizeStr = fileSize + "";                        
     let index = sizeStr.indexOf(".");                   
     let dou = sizeStr.substr(index + 1 ,2)            
     if(dou === "00"){                                
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
-    return size;
+    return fileSize;
 }
 
-export const calculateFileSizeAndNumber = (tree) =>{
-    let num = 0
-    let size = 0
+export const calculateTotalFilesSize = (tree) =>{
+    let filesSize  = 0
     const rec = (n) => {
-        n.forEach(c => {
-            if(c.type === 'file'){
-                num +=1
-                size += c.size
+        n.forEach(object => {
+            if(object.type === 'file'){
+                filesSize += object.size
             }else{
-                rec(c.children)
+                rec(object.children)
             }
-
         })
     }
     rec(tree)
-    return [size,num]
+    return filesSize
+}
+
+export const calculateTotalFilesNumber = (tree) =>{
+    let filesNumber = 0
+    const rec = (n) => {
+        n.forEach(object => {
+            if(object.type === 'file'){
+                filesNumber += 1
+            }else{
+                rec(object.children)
+            }
+        })
+    }
+    rec(tree)
+    return filesNumber
 }
 
 export const File = ()=> {
-    const [posts, setPosts] = useState([]);
+    const [item, setItem] = useState([]);
     const [error, setError] = useState("");
     const [filesSize,setFilesSize] = useState(0)
     const [filesNumber,setFilesNumber] = useState(0)
@@ -49,8 +61,9 @@ export const File = ()=> {
     useEffect(() => {
         getCars()
             .then((response) => {
-                setPosts(response.data);
-                setFilesSize(calculateFileSizeAndNumber(response.data))
+                setItem(response.data);
+                setFilesSize(calculateTotalFilesSize(response.data))
+                setFilesNumber(calculateTotalFilesNumber(response.data))
             })
             .catch((error) => {
                 console.log(error);
@@ -61,9 +74,9 @@ export const File = ()=> {
         <div  className="App">
             <div className="container">
                 {
-                    posts.length
-                        ? posts.map((post,index) => {
-                            return <FileTree key={index} data={post.children} name={post.name} type={post.type}/>;
+                    item.length
+                        ? item.map((item, index) => {
+                            return <FileTree key={index} data={item.children} name={item.name} type={item.type}/>;
                         })
                         : null
                 }
