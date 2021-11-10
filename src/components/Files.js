@@ -33,7 +33,7 @@ export const calculateTotalFilesSize = fileTree => {
             }
         })
     }
-    rec(fileTree)
+    currentObject(fileTree)
     return filesSize
 }
 
@@ -48,7 +48,7 @@ export const calculateTotalFilesNumber = fileTree => {
             }
         })
     }
-    rec(fileTree)
+    currentObject(fileTree)
     return filesNumber
 }
 
