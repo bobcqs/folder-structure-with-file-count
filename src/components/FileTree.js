@@ -15,10 +15,10 @@ function FileTree(props){
                 <li onClick={click}>
                 <div className={'folder-content'}>
                         <div className={type==="folder"?"floder":"hiden"}>
-                            <i className={`iconfont icon-down ${isShow? '' : 'rotate'}`}></i>
+                            <i className={`icon-font icon-down ${isShow? '' : 'rotate'}`}></i>
                         </div>
                         <div className="file">
-                            <i className={`iconfont icon-size ${type === "folder"? isShow? "icon-24gf-folderOpen" : "icon-24gf-folderMinus" : 'icon-wj-jjwj'}`}></i>
+                            <i className={`icon-font icon-size ${type === "folder"? isShow? "icon-24gf-folderOpen" : "icon-24gf-folderMinus" : 'icon-wj-jjwj'}`}></i>
                         </div>
                         <span>{ name }{type === "folder"? null : transferBytesFormat(size)}</span>
                     </div>
