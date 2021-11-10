@@ -1,8 +1,12 @@
 .rotate{
     transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -moz-transform: rotate(-90deg); /* Firefox */
+    -webkit-transform: rotate(-90deg); /* Safari and Chrome */
+    -o-transform: rotate(-90deg); /* Opera */
 }
 
-.li{
+li{
     list-style: none;
 }
 .active{
@@ -12,4 +16,22 @@
     display: none;
 }
 
+.folder-content{
+    display: flex;
+    align-items: center;
 
+}
+.folder img{
+    width: 30px;
+    height: 30px;
+    transition:all 0.3;
+
+}
+
+.file {
+    padding: 0 10px;
+}
+.file img{
+    width: 50px;
+    height: 50px;
+}

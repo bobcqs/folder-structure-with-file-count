@@ -16,6 +16,9 @@ function FileTree(props){
                 <li onClick={click}>
                 
                 <div className={'folder-content'}>
+                        <div className={type==="folder"?"floder":"hiden"}>
+                            <h1 className={isShow?'':'rotate'}> ↓</h1>
+                        </div>
                         <div className="file">
                         </div>
                         <span>{name}  {type==="folder"?null:change(size)}</span>
