@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../style/FileTree.css'
-import {transferBytesFormat} from "./Files";
+import { transferBytesFormat } from "./Files";
 import { FileOutlined, FolderOpenOutlined ,FolderOutlined, CaretRightOutlined, CaretDownOutlined} from '@ant-design/icons';
 
 function FileTree(props){
-    const {data,name,type,size} = props
+    const { data, name, type, size } = props
     const [isShow,setIsShow] = useState(false)
     const click = (e)=>{
         setIsShow(()=> !isShow)
