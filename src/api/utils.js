@@ -1,26 +1,24 @@
-export const change = (limit)=>{
-    var size = "";
+export const transferBytesFormat = (limit)=>{
+    let size = "";
     if(limit < 0.1 * 1024){                            
         size = limit.toFixed(2) + "B"
     }else if(limit < 0.1 * 1024 * 1024){            
         size = (limit/1024).toFixed(2) + "KB"
-    }else if(limit < 0.1 * 1024 * 1024 * 1024){        
+    }else if(limit < 0.1 * 1024 * 1024 * 1024){       
         size = (limit/(1024 * 1024)).toFixed(2) + "MB"
-    }else{                                            
+    }else{                                           
         size = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
     }
-
-    var sizeStr = size + "";                        
-    var index = sizeStr.indexOf(".");                    
-    var dou = sizeStr.substr(index + 1 ,2)           
-    if(dou == "00"){                               
+    let sizeStr = size + "";                        
+    let index = sizeStr.indexOf(".");                   
+    let dou = sizeStr.substr(index + 1 ,2)            
+    if(dou === "00"){                                
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
     return size;
 }
 
-
-export const dfs = (tree) =>{
+export const calculateFileSizeAndNumber = (tree) =>{
     let num = 0
     let size = 0
     const rec = (n) => {
@@ -34,7 +32,6 @@ export const dfs = (tree) =>{
 
         })
     }
-
     rec(tree)
     return [size,num]
 }
