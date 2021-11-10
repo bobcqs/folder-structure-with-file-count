@@ -14,7 +14,7 @@ function FileTree(props){
             <ul>
                 <li onClick={click}>
 
-                    <div className={'folder-content'}>
+                    <div>
                         <span>{name}</span>
                     </div>
             {data.length?
