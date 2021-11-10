@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import '../style/FileTree.css'
 import {transferBytesFormat} from "./Files";
+import { FileOutlined, FolderOutlined, CaretRightOutlined, CaretDownOutlined} from '@ant-design/icons';
 
 function FileTree(props){
     const {data,name,type,size} = props
@@ -15,10 +16,14 @@ function FileTree(props){
                 <li onClick={click}>
                 <div className={'folder-content'}>
                         <div className={type==="folder"?"floder":"hiden"}>
-                            <i className={`icon-font icon-down ${isShow? '' : 'rotate'}`}></i>
+                            <div className={`icon-style`}>
+                                {isShow? <CaretDownOutlined /> : <CaretRightOutlined />}
+                            </div>
                         </div>
                         <div className="file">
-                            <i className={`icon-font icon-size ${type === "folder"? isShow? "icon-24gf-folderOpen" : "icon-24gf-folderMinus" : 'icon-wj-jjwj'}`}></i>
+                            <div className={`icon-style icon-size`}>
+                                {type === "folder"? isShow? <FolderOutlined /> : <FolderOutlined /> : <FileOutlined />}
+                            </div>
                         </div>
                         <span>{ name }{type === "folder"? null : transferBytesFormat(size)}</span>
                     </div>
