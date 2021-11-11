@@ -5,25 +5,33 @@ import '../styles/File.css'
 
 export const transferBytesFormat = (limit) => {
     let fileSize = "";
-    if(limit < 0.1 * 1024) {                            
+    if(limit < 0.1 * 1024) {
         fileSize = limit.toFixed(2) + "B"
-    } else if(limit < 0.1 * 1024 * 1024) {            
+    } else if(limit < 0.1 * 1024 * 1024) {
         fileSize = (limit/1024).toFixed(2) + "KB"
-    } else if(limit < 0.1 * 1024 * 1024 * 1024) {       
+    } else if(limit < 0.1 * 1024 * 1024 * 1024) {
         fileSize = (limit/(1024 * 1024)).toFixed(2) + "MB"
-    } else {                                           
+    } else {
         fileSize = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
     }
-    
-    let sizeStr = fileSize + "";                        
-    let index = sizeStr.indexOf(".");                   
+
+    let sizeStr = fileSize + "";
+    let index = sizeStr.indexOf(".");
     let lastTwoDigit = sizeStr.substr(index + 1 ,2)
-    
-    if(lastTwoDigit === "00") {                                
+
+    if(lastTwoDigit === "00") {
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
 
     return fileSize;
+}
+
+export  const hideFileFormat = (filesName)=>{
+    if(filesName.length === 0) return filesName
+    let fileArray= filesName.split(".")
+    let fileLength = fileArray.length
+    let fileNameWithoutFormat = fileArray.splice(0,fileLength>1?fileLength-1:fileLength).join(".")
+    return fileNameWithoutFormat
 }
 
 export const calculateTotalFilesSize = fileTree => {

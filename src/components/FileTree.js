@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/FileTree.css'
-import { transferBytesFormat } from "./Files";
+import { transferBytesFormat, hideFileFormat } from "./Files";
 import { FileTwoTone, FolderOpenTwoTone ,FolderTwoTone, RightOutlined, DownOutlined} from '@ant-design/icons';
 
 function FileTree(props){
@@ -10,7 +10,7 @@ function FileTree(props){
         setIsShow(()=> !isShow)
         e.stopPropagation();
     }
-    
+
     return (
         <div>
             <ul>
@@ -28,8 +28,7 @@ function FileTree(props){
                                 </div>
                             </div>
                             <span>
-                                { name } 
-                                { type === "folder"? null : " " + transferBytesFormat(size) }
+                                { type === "folder"? name : hideFileFormat(name)+ " " + transferBytesFormat(size) }
                             </span>
                         </div>
                     </div>
@@ -37,7 +36,7 @@ function FileTree(props){
                 data.map((item,index) =>{
                     return (<div className={ isShow? "active" : "hiden" } key={index}>
                                     { item.children?.length?
-                                    <FileTree data={item.children} name={item.name} type={item.type}/> : 
+                                    <FileTree data={item.children} name={item.name} type={item.type}/> :
                                     <FileTree data={[]} name={item.name} type={item.type} size={item.size}/> }
                             </div>)}) : null
             }
