@@ -15,21 +15,23 @@ function FileTree(props){
         <div>
             <ul>
                 <li onClick={handleClick}>
-                <div className={'folder-content'}>
-                        <div className={type==="folder"?"floder":"hiden"}>
-                            <div className={`icon-style`}>
-                                {isShow? <DownOutlined /> : <RightOutlined />}
+                    <div>
+                        <div className={'folder-content'}>
+                            <div className={type === "folder"? "folder" : "hiden"}>
+                                <div className={`icon-style`}>
+                                    {isShow? <DownOutlined /> : <RightOutlined />}
+                                </div>
                             </div>
-                        </div>
-                        <div className="file">
-                            <div className={`icon-style icon-size`}>
-                                {type === "folder"? isShow? <FolderOpenOutlined /> : <FolderOutlined /> : <FileOutlined />}
+                            <div className="file">
+                                <div className={`icon-style icon-size`}>
+                                    {type === "folder"? isShow? <FolderOpenOutlined /> : <FolderOutlined /> : <FileOutlined />}
+                                </div>
                             </div>
+                            <span>
+                                { name } 
+                                { type === "folder"? null : " " + transferBytesFormat(size) }
+                            </span>
                         </div>
-                        <span>
-                            { name } 
-                            { type === "folder"? null : " " + transferBytesFormat(size) }
-                        </span>
                     </div>
             {data.length?
                 data.map((item,index) =>{
