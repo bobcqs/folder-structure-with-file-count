@@ -1,8 +1,7 @@
 .icon-style {
     font-family: "icon-style";
-    font-size: 30px;
     font-style: normal;
-    color: #6d7d8b;
+    color: #1890ff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -19,7 +18,6 @@
 
 li{
     list-style: none;
-    font-size: 18px;
     padding: 10px 0;
 }
 
@@ -55,5 +53,5 @@ li{
 }
 
 .icon-size{
-    font-size: 50px;
+    font-size: 25px;
 }
