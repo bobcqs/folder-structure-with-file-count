@@ -16,17 +16,17 @@ This project is to generate the file tree by loading the JSON file.
 
 3. Install project dependencies
 
-`npm install`
+	`npm install`
 
 4. quickly checked npm version by: 
 
-`npm -v`
+	`npm -v`
 
 ## Running the project
 
 In the project directory, you can run:
 
-`npm start`
+	`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
