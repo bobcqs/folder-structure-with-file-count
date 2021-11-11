@@ -1,22 +1,32 @@
 # Folder structure with file count
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is to generate the file tree by loading the JSON file.
 
 ## Installation
 
-In the project directory, you can run:
+###Make sure you read the instruction below before running the project in your side.
 
-### `npm install`
+1. Clone the project
 
-and quickly checked npm version by: 
+    `git clone https://github.com/bobcqs/folder-structure-with-file-count.git`
 
-### `npm -v`
+2. Enter the project folder
+
+    `cd folder-structure-with-file-count`
+
+3. Install project dependencies
+
+`npm install`
+
+4. quickly checked npm version by: 
+
+`npm -v`
 
 ## Running the project
 
 In the project directory, you can run:
 
-### `npm start`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
