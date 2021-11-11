@@ -4,21 +4,24 @@ import { getCars } from "../api/server";
 
 export const transferBytesFormat = (limit)=>{
     let fileSize = "";
-    if ( limit < 0.1 * 1024 ) {                            
+    if(limit < 0.1 * 1024) {                            
         fileSize = limit.toFixed(2) + "B"
-    } else if ( limit < 0.1 * 1024 * 1024 ) {            
+    } else if(limit < 0.1 * 1024 * 1024) {            
         fileSize = (limit/1024).toFixed(2) + "KB"
-    } else if ( limit < 0.1 * 1024 * 1024 * 1024 ) {       
+    } else if(limit < 0.1 * 1024 * 1024 * 1024) {       
         fileSize = (limit/(1024 * 1024)).toFixed(2) + "MB"
     } else {                                           
         fileSize = (limit/(1024 * 1024 * 1024)).toFixed(2) + "GB"
     }
+    
     let sizeStr = fileSize + "";                        
     let index = sizeStr.indexOf(".");                   
-    let lastTwoDigit = sizeStr.substr(index + 1 ,2)            
-    if( lastTwoDigit === "00" ){                                
+    let lastTwoDigit = sizeStr.substr(index + 1 ,2)
+    
+    if(lastTwoDigit === "00"){                                
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
+    
     return fileSize;
 }
 
@@ -76,7 +79,7 @@ export const File = () => {
                 {
                     item.length
                         ? item.map((item, index) => {
-                            return <FileTree key={index} data={item.children} name={item.name} type={item.type}/>;
+                            return <FileTree key={index} data={item.children} name={item.name} type={item.type} />;
                         })
                         : null
                 }
