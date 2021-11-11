@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FileTree from "./FileTree";
 import { getCars } from "../api/server";
-import { Divider } from 'antd';
 
 export const transferBytesFormat = (limit)=>{
     let fileSize = "";
