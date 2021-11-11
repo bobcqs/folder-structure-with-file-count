@@ -18,7 +18,7 @@ export const transferBytesFormat = (limit)=>{
     let index = sizeStr.indexOf(".");                   
     let lastTwoDigit = sizeStr.substr(index + 1 ,2)
     
-    if(lastTwoDigit === "00"){                                
+    if(lastTwoDigit === "00") {                                
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
 
