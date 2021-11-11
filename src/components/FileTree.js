@@ -4,7 +4,7 @@ import { transferBytesFormat } from "./Files";
 import { FileOutlined, FolderOpenOutlined ,FolderOutlined, RightOutlined, DownOutlined} from '@ant-design/icons';
 
 function FileTree(props){
-    const { data, name, type, size } = props
+    const {data, name, type, size} = props
     const [isShow,setIsShow] = useState(false)
     const handleClick = (e)=>{
         setIsShow(()=> !isShow)

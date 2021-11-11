@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FileTree from "./FileTree";
 import { getCars } from "../api/server";
+import { FileOutlined, FolderOpenOutlined ,FolderOutlined, RightOutlined, DownOutlined} from '@ant-design/icons';
 
-export const transferBytesFormat = (limit)=>{
+export const transferBytesFormat = (limit) => {
     let fileSize = "";
     if(limit < 0.1 * 1024) {                            
         fileSize = limit.toFixed(2) + "B"
@@ -70,7 +71,7 @@ export const File = () => {
             })
             .catch((error) => {
                 console.log(error);
-                setError("we have received an error");
+                setError("Unsuccessful request");
             });
     }, []);
     return (
