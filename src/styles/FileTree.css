@@ -13,18 +13,6 @@
     content: "\e600";
 }
 
-.icon-wj-jjwj:before {
-    content: "\e76f";
-}
-
-.icon-24gf-folderMinus:before {
-    content: "\eac6";
-}
-
-.icon-24gf-folderOpen:before {
-    content: "\eac5";
-}
-
 .rotate:before{
     transform: rotate(-90deg);
 }

@@ -21,7 +21,7 @@ export const transferBytesFormat = (limit)=>{
     if(lastTwoDigit === "00"){                                
         return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2)
     }
-    
+
     return fileSize;
 }
 
@@ -74,8 +74,8 @@ export const File = () => {
             });
     }, []);
     return (
-        <div  className="App">
-            <div className="container">
+        <div>
+            <div>
                 {
                     item.length
                         ? item.map((item, index) => {
@@ -84,7 +84,7 @@ export const File = () => {
                         : null
                 }
                 {error ? <div>{error}</div> : ""}
-                <div className="sum-box">
+                <div className="file-summary">
                     <h2>Total Files：{filesNumber}</h2>
                     <h2>Total Filesize：{transferBytesFormat(filesSize)}</h2>
                 </div>

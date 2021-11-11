@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../style/FileTree.css'
+import '../styles/FileTree.css'
 import { transferBytesFormat } from "./Files";
 import { FileOutlined, FolderOpenOutlined ,FolderOutlined, RightOutlined, DownOutlined} from '@ant-design/icons';
 
