@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FileTree from "./FileTree";
 import { getCars } from "../api/server";
+import { Divider } from 'antd';
 
 export const transferBytesFormat = (limit)=>{
     let fileSize = "";
@@ -84,6 +85,7 @@ export const File = () => {
                         : null
                 }
                 {error ? <div>{error}</div> : ""}
+                <hr className="divider" />
                 <div className="file-summary">
                     <h2>Total Files：{filesNumber}</h2>
                     <h2>Total Filesize：{transferBytesFormat(filesSize)}</h2>
