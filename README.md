@@ -4,7 +4,7 @@ This project is to generate the file tree by loading the JSON file.
 
 ## Installation
 
-##Make sure you read the instruction below before running the project in your side.
+### Make sure you read the instruction below before running the project in your side
 
 1. Clone the project
 
