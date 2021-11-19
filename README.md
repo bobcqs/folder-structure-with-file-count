@@ -18,7 +18,7 @@ This project is to generate the file tree by loading the JSON file.
 
 	`npm install`
 
-4. quickly checked npm version by: 
+4. quickly check npm version by: 
 
 	`npm -v`
 
